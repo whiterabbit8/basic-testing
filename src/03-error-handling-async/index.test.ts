@@ -1,4 +1,10 @@
-import { throwError, throwCustomError, resolveValue, MyAwesomeError, rejectCustomError } from './index';
+import {
+  throwError,
+  throwCustomError,
+  resolveValue,
+  MyAwesomeError,
+  rejectCustomError,
+} from './index';
 
 describe('resolveValue', () => {
   test('should resolve provided value', async () => {
@@ -25,6 +31,6 @@ describe('throwCustomError', () => {
 
 describe('rejectCustomError', () => {
   test('should reject custom error', async () => {
-    await expect(rejectCustomError()).rejects.toThrow(MyAwesomeError)
+    await expect(rejectCustomError()).rejects.toThrow(MyAwesomeError);
   });
 });

@@ -1,4 +1,10 @@
-import { BankAccount, getBankAccount, InsufficientFundsError, SynchronizationFailedError, TransferFailedError } from '.';
+import {
+  BankAccount,
+  getBankAccount,
+  InsufficientFundsError,
+  SynchronizationFailedError,
+  TransferFailedError,
+} from '.';
 import lodash from 'lodash';
 
 describe('BankAccount', () => {
@@ -18,7 +24,9 @@ describe('BankAccount', () => {
     const cash = 100;
     const account = new BankAccount(cash);
     const anotherAccount = new BankAccount(cash);
-    expect(() => account.transfer(cash + 100, anotherAccount)).toThrow(InsufficientFundsError);
+    expect(() => account.transfer(cash + 100, anotherAccount)).toThrow(
+      InsufficientFundsError,
+    );
   });
 
   test('should throw error when transferring to the same account', () => {
@@ -69,6 +77,8 @@ describe('BankAccount', () => {
     const randomValue = 0;
     const account = getBankAccount(100);
     jest.spyOn(lodash, 'random').mockReturnValue(randomValue);
-    await expect(account.synchronizeBalance()).rejects.toThrow(SynchronizationFailedError);
+    await expect(account.synchronizeBalance()).rejects.toThrow(
+      SynchronizationFailedError,
+    );
   });
 });
